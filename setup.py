@@ -1,9 +1,23 @@
 from distutils.core import setup
 import littlebro
+import sys
 
 VERSION = (0, 2, 1)
 __version__ = VERSION
 __versionstr__ = '.'.join(map(str, VERSION))
+
+REQUIRES = [
+    'importlib',
+    'anyjson',
+    'carrot>=0.6.0',
+    'celery>=0.8.0',
+    'pymongo',
+    'django-celery',
+    'django-kombu',
+]
+
+if not sys.version_info < (2 , 7):
+    REQUIRES.remove('importlib')
 
 setup(
     name = 'django-littlebro',
@@ -21,13 +35,5 @@ setup(
     license = 'BSD',
     url='https://github.com/cirlabs',
     packages = ['littlebro', 'littlebro.conf', 'littlebro.trackers', 'littlebro.backends'],
-    install_requires = [
-        'importlib',
-        'anyjson',
-        'carrot>=0.6.0',
-        'celery>=0.8.0',
-        'pymongo',
-        'django-celery',
-        'django-kombu',
-    ]
+    install_requires = REQUIRES
 )
