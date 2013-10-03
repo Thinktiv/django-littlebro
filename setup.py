@@ -2,7 +2,7 @@ from distutils.core import setup
 import littlebro
 import sys
 
-VERSION = (0, 2, 1)
+VERSION = (0, 2, 2)
 __version__ = VERSION
 __versionstr__ = '.'.join(map(str, VERSION))
 

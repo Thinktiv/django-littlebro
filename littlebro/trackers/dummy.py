@@ -13,4 +13,4 @@ class DummyTracker(BaseTracker):
         
     def track_event(self, event, params={}, collection=None):        
         backend = _get_backend_cls()
-        backend.save(event, time(), params, collection)
+        return  backend.save(event, time(), params, collection)

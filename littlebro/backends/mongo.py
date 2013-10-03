@@ -49,7 +49,7 @@ class MongoBackend(BaseBackend):
         if collection:
             self._set_collection(collection)
         col = self._get_collection()
-        col.insert({
+        return  col.insert({
             'event': event,
             'timestamp': datetime.fromtimestamp(time),
             'params': params
